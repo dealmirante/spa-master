@@ -1,0 +1,82 @@
+<header class='Navbar'>
+            
+    <div class='Navbar_Link Navbar_Logo'>
+        <a href="/index"><img src="/images/IsoLogo Color.png"/></a>
+    </div>
+
+    <div class="Navbar_Link Navbar_Toggle">
+        <i class="fa fa-bars"></i>
+        
+    </div>
+
+    </div>
+        <nav class='Navbar_Items'>
+            
+            <% if (isLogged) { %>
+            <div class='Navbar_Link'>
+            <a href='/products/productEditList'>Servicios</a>
+            
+            
+            </div>
+            <div class='Navbar_Link'>
+                <a href='/products/productAdd'>Agregar</a>
+    
+            </div>
+            <div class='Navbar_Link'>
+                <a href='/contact'>Contacto</a>
+    
+            </div>
+
+            
+            <div class='Navbar_Link'>
+                <a href='/users/profile'>Perfil</a>
+    
+                </div>
+            <div class='Navbar_Link'>
+            <a href='/users/logout'>Salir</a>
+
+            </div>
+        
+            <div class='Navbar_Link'>
+            <a href='/products/productCart'><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
+
+            </div>
+        <% } else { %>
+                <div class='Navbar_Link'>
+                <a href='/products/productList'>Servicios</a>
+    
+                </div>
+                <div class='Navbar_Link'>
+                    <a href='/users/login'>Ingresar</a>
+        
+                    </div>
+                    
+                    <div class='Navbar_Link'>
+                    <a href='/users/register'>Registrarse</a>
+        
+                    </div>
+                
+    
+                <div class='Navbar_Link'>
+                    <a href='/contact'>Contacto</a>
+        
+                    </div>
+                
+            <% } %>
+            
+
+        </nav>
+
+
+</header>
+
+<script>
+function classToggle() {
+const navs = document.querySelectorAll('.Navbar_Items')
+
+navs.forEach(nav => nav.classList.toggle('Navbar_ToggleShow'));
+}
+
+document.querySelector('.Navbar_Toggle')
+.addEventListener('click', classToggle);
+</script>

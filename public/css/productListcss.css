@@ -1,0 +1,62 @@
+body{
+    background-image: url("../images/genericas/2883119.jpg");
+    background-size: cover;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+h1{
+    font-weight: 300;
+    font-size: 3rem;
+}
+
+.padd{
+    padding: 10px;
+}
+
+.picDetail1{
+    align: center;
+    font-family: 'Lato', sans-serif;
+    height: 200px;
+    max-width: 250px;
+}
+
+.picDetail2{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.fondo{
+    background: white;
+    margin: 0px;
+    padding-left: 10px;
+}
+
+.textoProd{
+    text-align: left;
+    color: #9069a7;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+}
+
+.back{
+    background-color: #ffffffc9;
+}
+
+.boton{
+    background-color: #9069A7;
+    border-color: #9069A7;
+    margin-bottom: 30px;
+    margin-left: 3px;
+}
+
+@media (max-width: 572px){
+    .picDetail1{
+        max-width: 570px;
+        min-height: 200px;
+    }
+}

@@ -1,0 +1,41 @@
+body{
+    background-image: url("../images/fondo.jpg");
+    background-size: cover;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+h1{
+    font-weight: 300;
+    font-size: 3rem;
+}
+
+h6{
+    font-weight: normal;
+}
+
+.marco{
+    border: solid;
+    border-color: #9069a7;
+    min-height: 200px;
+}
+
+.defaultCheck1{
+    color: #9069a7;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    padding-top: 5px;
+}
+
+.ancho{
+    max-width: 600px;
+    background-color: #ffffffab;
+}
+
+.boton{
+    background-color: #9069A7;
+    border-color: #9069A7;
+    margin-bottom: 30px;
+}

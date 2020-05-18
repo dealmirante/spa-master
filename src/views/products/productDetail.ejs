@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= service.name %></title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/css/spa.css">
+    <link rel="stylesheet" href="/css/productDetailcss.css">
+</head>
+<body>
+    <%- include('../partials/headerNav')%>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-6 col-md-6 col-lg-6 col-xl-6 picDetail">
+            <img class="picDetail2" src=<%= service.photo %> width="100%">
+        </div>
+        <div class="col-12 col-sm-6 colmd-6 col-lg-6 col-xl-6 fondo">
+            <h2 class="textoProd"> <%=service.name%> </h2>
+            <p class="textoProd"> <%=service.description%></p>
+            <p class="textoProd">Duración: <%=service.duration%> minutos</p>
+            <p class="textoProd">Categoría: <%=service.category.name%></p>
+            <br>
+            <h4 class="textoProd picDetail">Precio: $<%=service.price%></h4>
+            <form class="col-12 textoProd" action='/products/addToCart/<%= service.id %>' method="POST">
+                <div class="row">
+                    <div class="col-4">
+                            <label for="quantity">Cantidad:</label>
+                            <input type="number" min="1" id="" name="quantity" class="form-control" value="1" >
+                    </div>
+                    <button type="submit" class="col-8 btn btn-primary">Agregar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+            <!-- <div class="row">
+                <div class="col-8 col-sm-8 col-md-8 col-lg-6 col-xl-6">
+                    <h4 class="textoProd"><%= /*service.precio*/ %></h4>
+                </div>
+                <div class="textoProd1" class="col-2 col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                    <a href="https://nirvana-spa.buk.app">
+                        <button type="submit" class="btn btn-primary">Agregar</button>
+                    </a>
+                </div>
+            </div> -->
+    </div>
+    <div class="col-auto">
+        <h2>Te puede interesar</h2>
+    </div>
+    <div class="card-deck">
+        <div class="card">
+            <a href="/products/productDetail/35">
+            <img class="card-img-top" src="/images/tatamientos/07-cuello-hombros-y-cabeza.jpeg">
+            <div class="card-body">
+                <h5 class="text">Cuello, hombros y cabeza</h5>
+            </div>
+            </a>
+        </div>
+        <div class="card">
+            <a href="/products/productDetail/36">
+            <img class="card-img-top" src="/images/tatamientos/08-reflexologia.jpeg">
+            <div class="card-body">
+                <h5 class="text">Reflexología</h5>
+            </div>
+            </a>
+        </div>
+        <div class="card">
+            <a href="/products/productDetail/37">
+            <img class="card-img-top" src="/images/tatamientos/09-anti-acne.jpeg">
+            <div class="card-body">
+                <h5 class="text">Anti Acné</h5>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>
+    <!--Footer-->
+    <%- include('../partials/footer')%>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>

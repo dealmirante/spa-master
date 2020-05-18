@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a Nirvana SPA</title>
+    <link rel="stylesheet" href="/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/css/spa.css">
+</head>
+    <body>
+        <!--Header-->
+        <%- include('./partials/headerNav')%>
+        <!--LogoClaim and search-->
+        <div class='mainContainer alto'>
+            <div class='brandContainer'>
+            <div class='logoClaim'>
+                <img src='/images/Logotipo color.png'>
+                <p>Tratamientos únicos para tu cuerpo y tus sentidos</p>
+            </div>
+            <div id='searchBarHome'>
+            <form action="/products/productSearch" method="GET">
+                <input type="text" name='search'>
+                <button id='searchIcon' type="submit">
+                    <i class="fa fa-search"></i>
+                    </button>
+            </form>
+            </div>
+            </div>
+        </div>
+        <!--Destacados o sugeridos-->
+        <div id='mensajeDestacado'>
+            <h2>TRATAMIENTOS DESTACADOS</h2>
+        </div>
+        <!--Listado de productos seleccionados-->
+        <div class= 'articleContainer container-fluid'>
+            <div class='row'>
+                <% services.forEach(service => { %>
+                    <article class='productoHome col-lg-4 col-md-6 col-12'>
+                        <a href="/products/productDetail/<%= service.id %>">
+                            <div class='imgProductHome'>
+                                <img src=<%= service.photo %>>
+                            </div>
+                            <div class='productDescriptionHome'>
+                            <h3><%= service.name %></h3>
+                            <p><%= service.summary %></p>
+                            </div>
+                        </a>
+                    </article>
+                <% }) %>
+            </div>
+        </div>
+        <!--Footer-->
+        <%- include('./partials/footer')%>
+    </body>
+    

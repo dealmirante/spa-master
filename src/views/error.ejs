@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>¡Ups! Tenemos un problema</title>
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/fontawesome-all.css">
+	<link rel="stylesheet" href="/css/contactcss.css">
+	<link rel="stylesheet" href="/css/spa.css">
+</head>
+<body>
+	<div class="back">
+		<h2><%= message %></h2>
+		<h2><%= error.status %></h2>
+		<p>Por favor contáctese con un administrador</p>
+		<p>Error intentando acceder a: <b><%= path %></b></p>
+		<pre class="estilo1"><i><%= error.stack %></i></pre>
+	</div>
+</body>
+</html>

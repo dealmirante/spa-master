@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agregar Producto</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/fontawesome-all.css">
+    <link rel="stylesheet" href="/css/spa.css">
+    <link rel="stylesheet" href="/css/productAddcss.css">
+</head>
+<body>
+<%- include('../partials/headerNav') %>
+<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+    <h1>Nuevo Servicio</h1>
+</div>
+
+<form action='/products/productAdd' method="POST" enctype="multipart/form-data" id="productAddForm">
+    <div class="container ancho">
+        <div class="row">
+            <div class="col-12">
+                <label for='name'>Nombre del Servicio:</label>
+                <input data-name='Nombre' type="text" id="" name="name" class="form-control
+                <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                    <%= hasErrorGetMessage('name', errors) ? 'is-invalid' : null %> 
+                <% } %>
+                "value="<%= typeof oldData !== 'undefined' ? oldData.nombre : null %>" >
+                <div class="invalid-feedback">
+                    <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                        <%= hasErrorGetMessage('name', errors) ? hasErrorGetMessage('name', errors) : null %>
+                    <% } %>
+                </div>
+                <br>
+            </div>
+            <div class="col-12">
+                <label  for='category'>Categoría:</label>
+                <select data-name='Categoría' name='categoryId' class="form-control">
+                    <option value="">Elige una opción</option>
+                    <% categories.forEach(category => { %>
+                        <option value=<%= category.id %>><%= category.name %></option>
+                    <% }) %>
+                </select>
+                <br>
+                <br>
+            </div>
+            <div class="col-12" id="textsize">
+                <label for='description'>Descripción:</label>
+                <textarea data-name='Descripción' type="text" id=“” name='description' cols="30" rows="10" class="form-control
+                <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                    <%= hasErrorGetMessage('description', errors) ? 'is-invalid' : null %> 
+                <% } %>
+                "
+                value="<%= typeof oldData !== 'undefined' ? oldData.descripción : null %>" >
+                </textarea>
+                <div class="invalid-feedback">
+                    <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                        <%= hasErrorGetMessage('description', errors) ? hasErrorGetMessage('description', errors) : null %>
+                    <% } %>
+                </div>
+            </div>
+            <div class="col-12" id="textsize">
+                <label for='summary'>Resumen:</label>
+                <textarea data-name='Resumen' type="text" id=“” name='summary' cols="30" rows="10"
+                class="form-control <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                <%= hasErrorGetMessage('summary', errors) ? 'is-invalid' : null %> 
+                <% } %>
+                "
+                value="<%= typeof oldData !== 'undefined' ? oldData.summary : null %>" >
+                </textarea>
+                <div class="invalid-feedback">
+                    <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                        <%= hasErrorGetMessage('summary', errors) ? hasErrorGetMessage('summary', errors) : null %>
+                    <% } %>
+                </div>
+            </div>
+            
+            <div class="col-6">
+                <label for="duration">Duración:</label>
+                <input data-name='Duración' type="number" min="40" id="" name="duration" class="form-control
+                <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                    <%= hasErrorGetMessage('duration', errors) ? 'is-invalid' : null %> 
+                <% } %>
+                "
+                value="<%= typeof oldData !== 'undefined' ? oldData.duration : null %>" >
+                <div class="invalid-feedback">
+                    <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                        <%= hasErrorGetMessage('duration', errors) ? hasErrorGetMessage('duration', errors) : null %>
+                    <% } %>
+                </div>
+                <br>
+            </div>
+            <div class="col-6">
+                <label for="price">Precio:</label>
+                <input data-name='Precio' type="number" id="" name="price" class="form-control
+                <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                    <%= hasErrorGetMessage('price', errors) ? 'is-invalid' : null %> 
+                <% } %>
+                "value="<%= typeof oldData !== 'undefined' ? oldData.price : null %>" >
+                
+                <div class="invalid-feedback">
+                    <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                        <%= hasErrorGetMessage('price', errors) ? hasErrorGetMessage('price', errors) : null %>
+                    <% } %>
+                </div>
+                <br>
+            </div>
+            <div class="custom-file">
+                <input data-name='Foto' type="file" name='photo' class="custom-file-input" id="validatedCustomFile" required>
+                <label class="custom-file-label" for="validatedCustomFile">Seleccionar photo del servicio</label>
+                <div class="invalid-feedback">
+                    <% if (typeof hasErrorGetMessage !== 'undefined') { %>
+                        <%= hasErrorGetMessage('photo', errors) ? hasErrorGetMessage('photo', errors) : null %>
+                    <% } %>
+                </div>
+              </div>
+            <div class="col-6">
+                <button class="btn btn-info boton" type="submit">Guardar</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-danger boton" type=“reset”>Reset</button>
+            </div>
+        </div>
+        
+    </div>
+</form>
+<script src="/js/validator.min.js"></script>
+<script src="/js/productsFrontValidation.js"></script>
+<!--Footer-->
+<%- include('../partials/footer')%>
+</body>
+</html>

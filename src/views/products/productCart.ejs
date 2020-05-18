@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Servicios</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/fontawesome-all.css">
+	<link rel="stylesheet" href="/css/bootstrap.css">
+	<link rel="stylesheet" href="/css/spa.css">
+	<link rel="stylesheet" href="/css/productCartcss.css">
+</head>
+<body>
+	<%- include('../partials/headerNav')%>
+<div class="container alto">
+	<div class="col-auto">
+		<h1>Servicios seleccionados</h1>
+	</div>
+	<div class="container cart">
+		<% let total = 0; %>
+		<% userCart.forEach( oneItem => { %>
+			<div class="row">
+			<div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1 carrito">
+				<form method="POST" action="/products/productUpdateCart/<%= oneItem.id %>?_method=DELETE" name='item<%= oneItem.id %>'>
+					<img class="icono" src="/images/cancel.svg" width="30px" onclick="document.forms['item<%= oneItem.id %>'].submit();">
+				</form>
+			</div>
+			<div class="col-6 col-sm-6 col-md-6 col-lg-6 col-xl-6">
+				<a href="/products/productDetail/<%= oneItem.serviceId %>">
+					<h3 class="carrito" ><%= oneItem.service.name %></h3>
+					<h5 class="carrito" >Cantidad: <%= oneItem.quantity %></h5>
+					<h5 class="carrito" >Precio unitario: $ <%= oneItem.salePrice %></h5>
+				</a>
+			</div>
+			<div class="col-5 col-sm-5 col-md-5 col-lg-5 col-xl-5 carrito2">
+				<h4 class="carrito2">$ <%= oneItem.salePrice * oneItem.quantity %></h4>
+			</div>
+		</div>
+		<% total += oneItem.salePrice * oneItem.quantity; %>
+		<% }) %>
+		<div class="row" id="carrito3">
+			<div class="col-8 col-sm-8 col-md-8 col-lg-8 col-xl-8 carrito">
+				<h3 class="carrito2">Total</h3>
+			</div>
+			<div class="col-4 col-sm-4 col-md-4 col-lg-4 col-xl-4 carrito2">
+				<h3 class="carrito2">$ <%= total %></h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 carrito2">
+				<a href="/products/compra">
+					<button type="submit" class="btn btn-primary">Pagar</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+	<!--Footer-->
+	<%- include('../partials/footer')%>
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
